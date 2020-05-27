@@ -1,5 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 #include "fibonacci.c"
+#include "grid.c"
+#include "selfrestart.c"
 /* appearance */
 static const unsigned int borderpx  = 3;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
@@ -50,13 +52,16 @@ static const int resizehints = 1;    /* 1 means respect size hints in tiled resi
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "[T]",        tile },    /* first entry is default */
-	{ ">F>",        NULL },    /* no layout function means floating behavior */
-	{ "/M/",        monocle },
-	{ "|M|",       centeredmaster },
-	{ ">M>",      centeredfloatingmaster },
+	{ "[T]",      tile },    /* first entry is default */
+	{ "TTT",      bstack },
+	{ "===",      bstackhoriz },
+	{ "<F>",      NULL },    /* no layout function means floating behavior */
+	{ "[M]",      monocle },	
+	{ "HHH",      grid},
+	{ "|M|",      centeredmaster },
+	{ "<M>",      centeredfloatingmaster },
 	{ "[@]",      spiral },
-	{ "[\\]",      dwindle },
+	{ "[\\]",     dwindle },
 	{ NULL,       NULL },
 };
 
@@ -96,7 +101,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
 	{ MODKEY|ShiftMask,		XK_minus,  cyclelayout,    {.i = -1 } },
-	{ MODKEY|ShiftMask,             XK_equal, cyclelayout,    {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_equal,  cyclelayout,    {.i = +1 } },
 	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
@@ -111,6 +116,8 @@ static Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
+	{ MODKEY|ShiftMask,             XK_r,      self_restart,   {0} },
+
 };
 
 /* button definitions */
