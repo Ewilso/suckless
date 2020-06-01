@@ -124,6 +124,7 @@ static void sendxembed(int c, long msg, long detail, long d1, long d2);
 static void setup(void);
 static void setcmd(int argc, char *argv[], int);
 static void sigchld(int unused);
+static void showbar(const Arg *arg);
 static void spawn(const Arg *arg);
 static int textnw(const char *text, unsigned int len);
 static void unmanage(int c);
@@ -920,7 +921,7 @@ setup(void) {
 	screen = DefaultScreen(dpy);
 	root = RootWindow(dpy, screen);
 	initfont(font);
-	bh = dc.h = dc.font.height + 2;
+	vbh = dc.h = dc.font.height + 2;
 
 	/* init atoms */
 	wmatom[WMProtocols] = XInternAtom(dpy, "WM_PROTOCOLS", False);
@@ -1015,6 +1016,13 @@ sigchld(int unused) {
 		die("tabbed: cannot install SIGCHLD handler");
 
 	while(0 < waitpid(-1, NULL, WNOHANG));
+}
+
+void
+showbar(const Arg *arg)
+{
+	barvisibility = arg->i;
+	drawbar();
 }
 
 void
