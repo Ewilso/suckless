@@ -27,7 +27,7 @@ static const char col_gray1[]       = "#3b4252";
 static const char col_gray2[]       = "#3b4252";
 static const char col_gray3[]       = "#d8dee9";
 static const char col_gray4[]       = "#d8dee9";
-static const char col_cyan[]        = "#81a1c1";
+static const char col_cyan[]        = "#4c566a";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
@@ -46,6 +46,7 @@ static const Rule rules[] = {
 	{ "Gimp",     NULL,       NULL,       0,            1,          0, 	    0,		-1 },
 	{ "Firefox",  NULL,       NULL,       1 << 8,       0,          0, 	    0,		-1 },
 	{ "st",       NULL,       NULL,       1 << 9,       0,          1, 	    0,		-1 },
+	{ "termite",  NULL,       NULL,       1 << 9,       0,          1, 	    0,		-1 },
 };
 
 /* layout(s) */
