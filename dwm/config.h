@@ -43,9 +43,10 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class      instance    title       tags mask     isfloating	isterminal  noswallow 	monitor */
-	{ "Gimp",     NULL,       NULL,       0,            1,          0, 	    0,		-1 },
+	{ "Gimp",     NULL,       NULL,       0,            0,          0, 	    0,		-1 },
 	{ "Firefox",  NULL,       NULL,       1 << 8,       0,          0, 	    0,		-1 },
 	{ "st",       NULL,       NULL,       1 << 9,       0,          1, 	    0,		-1 },
+	{ "Steam",    NULL,       NULL,       1 << 9,       1,          0,          0,          -1 },
 	{ "termite",  NULL,       NULL,       1 << 9,       0,          1, 	    0,		-1 },
 };
 
@@ -57,9 +58,9 @@ static const int resizehints = 1;    /* 1 means respect size hints in tiled resi
 static const Layout layouts[] = {
 	/* symbol     arrange function */
 	{ "[T]",      tile },    /* first entry is default */
-	{ "TTT",      bstack },
+	{ "<F>",      NULL },
 	{ "===",      bstackhoriz },
-	{ "<F>",      NULL },    /* no layout function means floating behavior */
+	{ "TTT",      bstack },    /* no layout function means floating behavior */
 	{ "[M]",      monocle },	
 	{ "HHH",      grid},
 	{ "|M|",      centeredmaster },
