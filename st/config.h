@@ -5,8 +5,8 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Mononoki Nerd Font:pixelsize=11";
-static char *font2[] = { "JoyPixels:pixelsize=10:antialias=true:autohint=true" };
+static char *font = "Monospace:pixelsize=11";
+static char *font2[] = { "siji:pixelsize=10:antialias=true:autohint=true", "JoyPixels:pixelsize=10:antialias=true:autohint=true" };
 static int borderpx = 6;
 
 /*
@@ -148,8 +148,8 @@ static unsigned int cursorshape = 2;
  *
  */
 
-static unsigned int cols = 80;
-static unsigned int rows = 24;
+static unsigned int cols = 130;
+static unsigned int rows = 50;
 
 /*
  * Default colour and shape of the mouse cursor
