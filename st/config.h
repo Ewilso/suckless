@@ -5,7 +5,11 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
+<<<<<<< HEAD
 static char *font = "Mononoki nerd font:pixelsize=11";
+=======
+static char *font = "Mononoki Nerd font:pixelsize=11";
+>>>>>>> 638fd144c9be8215e56b26d8fe3957c53c776c5f
 static char *font2[] = { "siji:pixelsize=10:antialias=true:autohint=true", "JoyPixels:pixelsize=10:antialias=true:autohint=true" };
 static int borderpx = 6;
 
